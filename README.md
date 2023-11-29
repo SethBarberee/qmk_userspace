@@ -1,6 +1,7 @@
-# QMK Userspace
+# sethbarberee's Userspace
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
+My keymaps that were formerly in the main qmk firmware repository.
+
 
 ## Howto configure your build targets
 
@@ -17,14 +18,6 @@ This is a template repository which allows for an external set of QMK keymaps to
     * Corresponding `qmk userspace-remove -kb <your_keyboard> -km <your_keymap>` will delete it
     * Listing the build targets can be done with with `qmk userspace-list`
 1. Commit your changes
-
-## Howto build with GitHub
-
-1. In the GitHub Actions tab, enable workflows
-1. Push your changes above to your forked GitHub repository
-1. Look at the GitHub Actions for a new actions run
-1. Wait for the actions run to complete
-1. Inspect the Releases tab on your repository for the latest firmware build
 
 ## Howto build locally
 
