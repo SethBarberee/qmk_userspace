@@ -4,6 +4,8 @@
         ["ergotravel/rev1", "sethbarberee"],
         ["keebio/sinc/rev1", "sethbarberee"],
         ["wilba_tech/zeal60", "sethbarberee"],
-        ["doio/kb16/rev2", "sethbarberee"]
+        ["doio/kb16/rev2", "sethbarberee"],
+        ["zsa/moonlander", "sethbarberee"],
+        ["crkbd/rev1", "sethbarberee"]
     ]
 }

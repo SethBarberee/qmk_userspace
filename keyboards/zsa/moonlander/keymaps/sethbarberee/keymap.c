@@ -38,9 +38,9 @@ enum custom_keycodes {
     K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A  \
     ) \
     LAYOUT_moonlander_wrapper( \
-        KC_ECAP,  ________________NUMBER_LEFT________________,          KC_LEFT,         KC_RGHT, ________________NUMBER_RIGHT_______________, KC_MINS, \
+        KC_ESC,  ________________NUMBER_LEFT________________,          KC_LEFT,         KC_RGHT, ________________NUMBER_RIGHT_______________, KC_MINS, \
         KC_TAB,           K01,     K02,     K03,     K04,     K05,     TG(SYMB),         TG(SYMB), K06,     K07,     K08,     K09,     K0A,     KC_BSLS, \
-        LT(SYMB, KC_GRV), K11,     K12,     K13,     K14,     K15,      KC_HYPR,           KC_MEH, K16,     K17,     K18,     K19,     LT(MDIA,K1A),     LGUI_T(K1B), \
+        LT(SYMB, KC_GRV), K11,     K12,     K13,     K14,     K15,      TG(MDIA),        TG(MDIA), K16,     K17,     K18,     K19,     LT(MDIA,K1A),     LGUI_T(K1B), \
         KC_LSFT, CTL_T(K21), K22,  K23,     K24,     K25,                                 K26,     K27,     K28,     K29,  RCTL_T(K2A),KC_RSFT, \
         KC_LCTL, LT(SYMB, KC_GRV),  KC_TAB,KC_TAB, KC_TAB,          LALT_T(KC_HOME),        RCTL_T(KC_END), _______, KC_UP, KC_LEFT,   KC_DOWN, KC_RGHT, \
                                             KC_TAB,  KC_SPC, KC_PGUP,                       KC_PGDN, KC_BSPC, KC_ENT \
