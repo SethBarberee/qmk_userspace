@@ -8,3 +8,8 @@ endif
 ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
 	SRC += rgb_light.c
 endif
+
+ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
+	SRC += rgb_matrix_stuff.c
+endif
+

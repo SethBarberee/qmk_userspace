@@ -49,6 +49,11 @@ enum userspace_keycodes {
 #   include "rgb_light.h"
 #endif
 
+#ifdef RGB_MATRIX_ENABLE
+#   include "rgb_matrix_stuff.h"
+#endif
+
+
 typedef union {
     uint32_t raw;
     struct {

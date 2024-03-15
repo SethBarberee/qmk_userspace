@@ -54,6 +54,10 @@ void keyboard_post_init_user(void) {
 #if defined(RGBLIGHT_ENABLE)
     keyboard_post_init_rgb_light();
 #endif
+#if defined(RGB_MATRIX_ENABLE)
+    keyboard_post_init_rgb_matrix();
+#endif
+
     keyboard_post_init_keymap();
 }
 
@@ -106,13 +110,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     dprintf("rgblight layer change [EEPROM]: %u\n", user_config.rgb_layer_change);
                     eeconfig_update_user(user_config.raw);
                     if (user_config.rgb_layer_change) {
-                        //rgb_matrix_set_flags(LED_FLAG_UNDERGLOW | LED_FLAG_KEYLIGHT | LED_FLAG_INDICATOR);
+
+#ifdef  RGB_MATRIX_ENABLE
+                        rgb_matrix_set_flags(LED_FLAG_UNDERGLOW | LED_FLAG_KEYLIGHT | LED_FLAG_INDICATOR);
+#endif
 #ifdef RGBLIGHT_ENABLE
                         rgblight_enable_noeeprom();
 #endif
                         layer_state_set(layer_state); // This is needed to immediately set the layer color (looks better)
                     } else {
-                        //rgb_matrix_set_flags(LED_FLAG_ALL);
+#ifdef  RGB_MATRIX_ENABLE
+                        rgb_matrix_set_flags(LED_FLAG_ALL);
+#endif
 #ifdef RGBLIGHT_ENABLE
                         rgblight_disable_noeeprom();
 #endif

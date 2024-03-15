@@ -27,3 +27,5 @@
 // #define RAW_USAGE_ID 0x61
 #define RGB_MATRIX_STARTUP_SPD 60
 
+#define RGB_MATRIX_SLEEP
+

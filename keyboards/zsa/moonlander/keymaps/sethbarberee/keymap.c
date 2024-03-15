@@ -16,11 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <stdbool.h>
 #include QMK_KEYBOARD_H
 #include "sethbarberee.h"
 
 enum keymap_layers {
-    BASE,  // default layer
+    BASE = _QWERTY,  // default layer
     SYMB = _LOWER,  // symbols
     MDIA = _RAISE,  // media keys
 };
@@ -50,7 +51,7 @@ enum custom_keycodes {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_QWERTY] = LAYOUT_base_wrapper(
+    [BASE] = LAYOUT_base_wrapper(
         _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
         _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
         _________________QWERTY_L3_________________, _________________QWERTY_R3_________________
@@ -67,12 +68,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [MDIA] = LAYOUT_moonlander_wrapper(
-        LED_LEVEL,_______,_______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, QK_BOOT,
+        LED_LEVEL,KC_RGB_T,_______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, QK_BOOT,
         _______, _______, _______, KC_MS_U, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
         _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,           _______, _______, _______, _______, _______, _______, KC_MPLY,
         _______, _______, _______, _______, _______, _______,                             _______, _______, KC_MPRV, KC_MNXT, _______, _______,
         _______, _______, _______, KC_BTN1, KC_BTN2,         _______,            _______,          KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
                                             _______, _______, _______,           _______, _______, KC_WWW_BACK
+    ),
+    [_ADJUST] = LAYOUT_moonlander_wrapper(
+        _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                             _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______,          _______,           _______,          _______, _______, _______, _______, _______,
+                                            _______, _______, _______,           _______, _______, _______
     ),
 };
 
@@ -89,7 +98,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 
 // TODO do spotify controls
 // maybe should create some constants to make this cleaner
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
+bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max)
 {
     if (layer_state_is(MDIA)) {
         //RGB_MATRIX_INDICATOR_SET_COLOR(11 , 0x00, 0xFF, 0x00);  // W
@@ -101,12 +110,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
         RGB_MATRIX_INDICATOR_SET_COLOR(22, 0x00, 0xFF, 0xFF);  // F
         //RGB_MATRIX_INDICATOR_SET_COLOR(27, 0x7A, 0x00, 0xFF);  // G
 
-        RGB_MATRIX_INDICATOR_SET_COLOR(39, 0x00, 0xFF, 0x00); // MPLY
+        RGB_MATRIX_INDICATOR_SET_COLOR(38, 0x00, 0xFF, 0x00); // MPLY
         RGB_MATRIX_INDICATOR_SET_COLOR(49, 0x00, 0xFF, 0x00); // MNXT
         RGB_MATRIX_INDICATOR_SET_COLOR(54, 0x00, 0xFF, 0x00); // MPRV
         RGB_MATRIX_INDICATOR_SET_COLOR(60, 0xFF, 0x80, 0x00);  // VOLU
         RGB_MATRIX_INDICATOR_SET_COLOR(55, 0xFF, 0x80, 0x00);  // VOLD
         RGB_MATRIX_INDICATOR_SET_COLOR(50, 0xFF, 0x80, 0x00);  // MUTE
+
+        return false;
     }
     return true;
 }

@@ -19,4 +19,3 @@
 #        define RGBLIGHT_EFFECT_KNIGHT
 #        define RGBLIGHT_EFFECT_TWINKLE
 #endif
-
