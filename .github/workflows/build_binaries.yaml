@@ -18,5 +18,3 @@ jobs:
     uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
     if: always() && !cancelled()
     needs: [build]
-    with:
-      qmk_ref: ${{ github.ref_name }}
