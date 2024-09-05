@@ -20,7 +20,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     {
         for (uint8_t i = led_min; i < led_max; i++) {
 
-            if (HAS_FLAGS(g_led_config.flags[i], 0x04)) { // 0x04 == LED_FLAG_KEYLIGHT
+            if (HAS_FLAGS(g_led_config.flags[i], 0x01)) { // 0x01 == LED_FLAG_MODIFIER
                 switch(get_highest_layer(layer_state))
                 {
                     case _LOWER:
