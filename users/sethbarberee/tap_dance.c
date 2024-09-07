@@ -16,7 +16,7 @@
 #include "tap_dance.h"
 
 // Shamelessly stolen from QMK Docs
-int cur_dance (tap_dance_state_t *state) {
+td_state_t cur_dance (tap_dance_state_t *state) {
   if (state->count == 1) {
     if (state->interrupted || !state->pressed) {
       return SINGLE_TAP;
@@ -38,7 +38,7 @@ int cur_dance (tap_dance_state_t *state) {
 
 
 // Initialize it now
-tap caps_status = {
+td_tap_t caps_status = {
     .toggled = false,
     .state = 0
 };
@@ -71,6 +71,8 @@ void dance_ecap_finished (tap_dance_state_t *state, void *user_data){
 #endif
             }
             break;
+        default:
+            break;
     }
 }
 
@@ -82,7 +84,7 @@ void dance_ecap_reset (tap_dance_state_t *state, void *user_data){
 }
 
 //Tap Dance Definitions
-tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[TAP_DANCE_MAX] = {
   //Tap once for Esc, twice for Caps Lock
   [TD_ECAP]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_ecap_finished, dance_ecap_reset),
 // Other declarations would go here, separated by commas, if you have them

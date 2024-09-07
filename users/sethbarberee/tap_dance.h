@@ -17,7 +17,7 @@
 #include "sethbarberee.h"
 
 //Define a type for as many tap dance states as you need
-enum {
+typedef enum {
     SINGLE_TAP = 1,
     SINGLE_HOLD = 2,
     DOUBLE_TAP = 3,
@@ -25,11 +25,12 @@ enum {
     DOUBLE_SINGLE_TAP = 5, //send two single taps
     TRIPLE_TAP = 6,
     TRIPLE_HOLD = 7
-};
+} td_state_t;
 
 
 enum {
     TD_ECAP = 0,
+    TAP_DANCE_MAX
 };
 
 #define KC_ECAP TD(TD_ECAP)
@@ -39,5 +40,7 @@ typedef struct {
 #ifdef RGBLIGHT_ENABLE
     int normal_mode;
 #endif // RGBLIGHT_ENABLE
-    int state;
-} tap;
+    td_state_t state;
+} td_tap_t;
+
+extern tap_dance_action_t tap_dance_actions[TAP_DANCE_MAX];
