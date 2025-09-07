@@ -28,6 +28,8 @@
 #    endif
 #    ifdef RGBLIGHT_DEFAULT_MODE
 #        undef RGBLIGHT_DEFAULT_MODE
+#    endif
+#    ifndef RGBLIGHT_DEFAULT_MODE
 #        define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_TWINKLE + 3
 #    endif
 #    ifndef CAPS_LOCK_MODE

@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MASTER_RIGHT
 #define EE_HANDS
 
-#undef RGBLED_NUM
-#define RGBLED_NUM 8
+#undef RGBLIGHT_LED_COUNT
+#define RGBLIGHT_LED_COUNT 8
 
 #undef RGBLED_SPLIT
-#define RGBLED_SPLIT { RGBLED_NUM, 0}
+#define RGBLED_SPLIT { RGBLIGHT_LED_COUNT, 0}

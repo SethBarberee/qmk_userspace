@@ -39,11 +39,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_80_with_macro_wrapper(
-    RGB_TOG,          _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY,
-    RGB_HUI, RGB_HUD, QK_GESC, _________________FUNC_LEFT_________________,           _________________FUNC_RIGHT________________,  KC_F11,  KC_F12,  _______, _______, KC_MPRV,
-    RGB_SAI, RGB_SAD, KC_RGB_T, _______, _______, _______, _______, KC_LPRN,           KC_RPRN, _______, _______, _______, _______, _______, _______, _______, KC_MNXT,
-    RGB_VAI, RGB_VAD, _______, _______, _______, _______, _______, KC_LCBR,           KC_RCBR, _______, _______, _______, _______, _______,          _______, KC_VOLU,
-    RGB_MOD, RGB_RMOD, _______, _______, _______, _______, _______, KC_LBRC,          KC_RBRC, _______, _______, _______, _______, _______, _______, KC_VOLD,
+    UG_TOGG,          _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY,
+    UG_HUEU, UG_HUED, QK_GESC, _________________FUNC_LEFT_________________,           _________________FUNC_RIGHT________________,  KC_F11,  KC_F12,  _______, _______, KC_MPRV,
+    UG_SATU, UG_SATD, KC_RGB_T, _______, _______, _______, _______, KC_LPRN,           KC_RPRN, _______, _______, _______, _______, _______, _______, _______, KC_MNXT,
+    UG_VALU, UG_VALD, _______, _______, _______, _______, _______, KC_LCBR,           KC_RCBR, _______, _______, _______, _______, _______,          _______, KC_VOLU,
+    UG_NEXT, UG_PREV, _______, _______, _______, _______, _______, KC_LBRC,          KC_RBRC, _______, _______, _______, _______, _______, _______, KC_VOLD,
     _______, _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______, _______
   ),
 
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             [_QWERTY] = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
             [_DVORAK] = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-            [_LOWER]  = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD), ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
+            [_LOWER]  = { ENCODER_CCW_CW(UG_PREV, UG_NEXT), ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
             [_RAISE]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
             [_ADJUST] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
         };

@@ -17,18 +17,6 @@
 
 extern backlight_config_t backlight_config;
 
-#define KC_RST QK_BOOT
-#define KC_BL_S BL_STEP
-#define KC_RTOG RGB_TOG
-#define KC_RMOD RGB_MOD
-#define KC_RHUI RGB_HUI
-#define KC_RHUD RGB_HUD
-#define KC_RSAI RGB_SAI
-#define KC_RSAD RGB_SAD
-#define KC_RVAI RGB_VAI
-#define KC_RVAD RGB_VAD
-#define KC_VK VK_TOGG
-
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -43,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
      KC_TILD,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,               KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,KC_BSPC,
-     KC_RST ,_______,_______, KC_UP ,_______,_______,               KC_GRV , KC_P7 , KC_P8 , KC_P9 ,_______,_______,
+     QK_BOOT,_______,_______, KC_UP ,_______,_______,               KC_GRV , KC_P7 , KC_P8 , KC_P9 ,_______,_______,
      KC_DEL ,_______,KC_LEFT,KC_DOWN,KC_RGHT,KC_LBRC,               KC_RBRC, KC_P4 , KC_P5 , KC_P6 ,KC_PLUS,KC_PIPE,
-     KC_BL_S,_______,_______,_______,_______,KC_LCBR,KC_LPRN,       KC_RPRN,KC_RCBR, KC_P1 , KC_P2 , KC_P3 ,KC_MINS,_______,
+     BL_STEP,_______,_______,_______,_______,KC_LCBR,KC_LPRN,       KC_RPRN,KC_RCBR, KC_P1 , KC_P2 , KC_P3 ,KC_MINS,_______,
                                         _______,_______,KC_LPRN,       KC_DEL ,_______, KC_P0
   ),
 
@@ -58,17 +46,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT(
-  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      _______,_______,_______,_______,_______,_______,               _______,_______,_______,_______,_______,_______,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     KC_RTOG,KC_RMOD,KC_RHUI,KC_RSAI,KC_RVAI,_______,               _______,_______,_______,_______,_______,_______,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     KC_VK,  _______,KC_RHUD,KC_RSAD,KC_RVAD,_______,               _______,_______,_______,_______,_______,_______,
-  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     KC_BL_S,KC_RST ,_______,_______,_______,_______,_______,     _______,_______,_______,_______,_______,_______,_______,
-  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       _______,_______,_______,         _______,_______, _______
-  //                  `----+----+----'        `----+----+----'
+     UG_TOGG,UG_NEXT,UG_HUEU,UG_SATU,UG_VALU,_______,               _______,_______,_______,_______,_______,_______,
+     VK_TOGG,  _______,UG_HUED,UG_SATD,UG_VALD,_______,               _______,_______,_______,_______,_______,_______,
+     BL_STEP,QK_BOOT,_______,_______,_______,_______,_______,     _______,_______,_______,_______,_______,_______,_______,
+                       _______,_______,_______,                         _______,_______, _______
   )
 
 };

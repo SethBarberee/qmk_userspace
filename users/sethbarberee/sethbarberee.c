@@ -128,7 +128,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     }
                 }
                 break;
-            case RGB_TOG:
+            case QK_UNDERGLOW_TOGGLE:
                 // Split keyboards need to trigger on key-up for edge-case issue
 #    ifndef SPLIT_KEYBOARD
                 if (record->event.pressed) {
@@ -142,7 +142,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
                 return false;
                 break;
-        case RGB_MODE_FORWARD ... RGB_MODE_GRADIENT: // quantum_keycodes.h L400 for definitions
+        case QK_UNDERGLOW_MODE_NEXT ... RGB_MODE_TWINKLE: // quantum_keycodes.h L400 for definitions
             if (record->event.pressed) {
                 bool is_eeprom_updated = false;
                 // This disables layer indication, as it's assumed that if you're changing this ... you want that disabled

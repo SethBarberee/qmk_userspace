@@ -27,7 +27,7 @@ enum keymap_layers {
 };
 
 enum custom_keycodes {
-  RGB_SLD = USER_SAFE_RANGE,
+  RM_SLD = USER_SAFE_RANGE,
 };
 
 // clang-format off
@@ -62,17 +62,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE, _______,           _______, KC_UP,   KC_7,    KC_8,    KC_9,    KC_ASTR, KC_F12,
         _______,  KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,  _______,           _______, KC_DOWN, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
         _______,  KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,                             KC_AMPR, KC_1,    KC_2,    KC_3,    KC_BSLS, _______,
-        _______,  _______, _______, _______, _______,          RGB_MOD,           RGB_TOG,          _______, KC_DOT,  KC_0,    KC_EQL,  _______,
-                                    RGB_VAD, RGB_VAI, TOGGLE_LAYER_COLOR,       RGB_SLD,        RGB_HUD,        RGB_HUI
+        _______,  _______, _______, _______, _______,          RM_NEXT,           RM_TOGG,          _______, KC_DOT,  KC_0,    KC_EQL,  _______,
+                                    RM_VALD, RM_VALU, TOGGLE_LAYER_COLOR,       RM_SLD,        RM_HUED,        RM_HUEU
 
     ),
 
     [MDIA] = LAYOUT_moonlander_wrapper(
         LED_LEVEL,KC_RGB_T,_______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, QK_BOOT,
-        _______, _______, _______, KC_MS_U, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,           _______, _______, _______, _______, _______, _______, KC_MPLY,
+        _______, _______, _______, MS_UP, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, MS_LEFT, MS_DOWN, MS_RGHT, _______, _______,           _______, _______, _______, _______, _______, _______, KC_MPLY,
         _______, _______, _______, _______, _______, _______,                             _______, _______, KC_MPRV, KC_MNXT, _______, _______,
-        _______, _______, _______, KC_BTN1, KC_BTN2,         _______,            _______,          KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
+        _______, _______, _______, MS_BTN1, MS_BTN2,         _______,            _______,          KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
                                             _______, _______, _______,           _______, _______, KC_WWW_BACK
     ),
     [_ADJUST] = LAYOUT_moonlander_wrapper(
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case RGB_SLD:
+    case RM_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
       }
@@ -101,10 +101,10 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max)
 {
     if (layer_state_is(MDIA)) {
-        //RGB_MATRIX_INDICATOR_SET_COLOR(11 , 0x00, 0xFF, 0x00);  // W
+        //RM_MATRIX_INDICATOR_SET_COLOR(11 , 0x00, 0xFF, 0x00);  // W
         RGB_MATRIX_INDICATOR_SET_COLOR(16, 0x00, 0xFF, 0xFF);  // E
-        //RGB_MATRIX_INDICATOR_SET_COLOR(21, 0xFF, 0x00, 0x00);  // R
-        //RGB_MATRIX_INDICATOR_SET_COLOR(26, 0xFF, 0x80, 0x00);  // T
+        //RM_MATRIX_INDICATOR_SET_COLOR(21, 0xFF, 0x00, 0x00);  // R
+        //RM_MATRIX_INDICATOR_SET_COLOR(26, 0xFF, 0x80, 0x00);  // T
         RGB_MATRIX_INDICATOR_SET_COLOR(12 , 0x00, 0xFF, 0xFF);  // S
         RGB_MATRIX_INDICATOR_SET_COLOR(17, 0x00, 0xFF, 0xFF);  // D
         RGB_MATRIX_INDICATOR_SET_COLOR(22, 0x00, 0xFF, 0xFF);  // F
