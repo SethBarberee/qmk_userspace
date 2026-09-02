@@ -21,11 +21,11 @@ __attribute__((weak)) void keyboard_pre_init_keymap(void) {}
 void keyboard_pre_init_user(void) {
 #if defined(BOOTLOADER_CATERINA)
     // Make sure the red LEDs don't light
-    setPinOutput(D5);
-    writePinHigh(D5);
+    gpio_set_pin_output(D5);
+    gpio_write_pin_high(D5);
 
-    setPinOutput(B0);
-    writePinHigh(B0);
+    gpio_set_pin_output(B0);
+    gpio_write_pin_high(B0);
 #endif
     keyboard_pre_init_keymap();
 }
